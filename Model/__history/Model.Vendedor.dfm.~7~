@@ -1,0 +1,28 @@
+object dmVendedor: TdmVendedor
+  OldCreateOrder = False
+  Height = 355
+  Width = 502
+  object qrClientesRCA: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      
+        'SELECT PCCLIENT.CODCLI , PCCLIENT.CLIENTE , PCCLIENT.CGCENT CNPJ' +
+        ', PCCLIENT.LIMCRED, PCCLIENT.DTCADASTRO , PCCLIENT.OBS FROM PCCL' +
+        'IENT '
+      '  WHERE PCCLIENT.CODUSUR1 = :CODUSUR')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end>
+    Left = 32
+    Top = 24
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end>
+  end
+end

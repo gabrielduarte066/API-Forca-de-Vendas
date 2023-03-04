@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/02/27 12:03:36.000.635,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\View\View.API.pas</Transaction>
+    <Transaction>2023/02/27 12:16:41.000.072,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\U_dmConexao.pas=</Transaction>
+    <Transaction>2023/02/27 12:17:07.000.351,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Conexao.pas</Transaction>
+    <Transaction>2023/02/27 12:25:16.004,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\App.dproj=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Project1.dproj</Transaction>
+    <Transaction>2023/02/27 12:33:41.967,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/02/27 12:34:04.965,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Servico.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/02/27 13:39:58.214,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/02/27 13:40:39.395,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Configurações\Config.Versao.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 08:50:56.299,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 08:53:33.834,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.FilaRequest.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 08:56:55.016,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 08:58:07.042,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.ProcessarFila.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 10:17:17.452,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Token.pas=</Transaction>
+    <Transaction>2023/03/01 10:17:22.716,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Produtos.pas=</Transaction>
+    <Transaction>2023/03/01 10:45:25.739,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.FilaRequest.pas=</Transaction>
+    <Transaction>2023/03/01 10:45:28.515,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.ProcessarFila.pas=</Transaction>
+    <Transaction>2023/03/01 10:45:39.076,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Configurações\Config.Versao.pas=</Transaction>
+    <Transaction>2023/03/01 10:50:29.424,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Produto.pas=</Transaction>
+    <Transaction>2023/03/01 10:50:33.423,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Preco.pas=</Transaction>
+    <Transaction>2023/03/01 11:09:27.831,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 11:09:48.338,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Vendedor.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 11:09:58.112,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 11:10:37.362,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Vendedor.dfm=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.dfm</Transaction>
+    <Transaction>2023/03/01 11:10:37.362,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Vendedor.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Unit1.pas</Transaction>
+    <Transaction>2023/03/01 16:23:47.924,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Produto.pas</Transaction>
+    <Transaction>2023/03/01 16:25:22.154,=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Produtos.pas</Transaction>
+    <Transaction>2023/03/01 16:56:38.158,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Clientes.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Controller\Controller.Vendedor.pas</Transaction>
+    <Transaction>2023/03/01 16:57:49.097,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Clientes.pas=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Vendedor.pas</Transaction>
+    <Transaction>2023/03/01 16:57:49.097,C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Clientes.dfm=C:\Users\GabrielDuarte\Documents\Embarcadero\Studio\Projects\Api Força de Vendas\src\Model\Model.Vendedor.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

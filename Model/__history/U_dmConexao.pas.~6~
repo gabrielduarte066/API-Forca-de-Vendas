@@ -1,0 +1,34 @@
+unit U_dmConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ZAbstractConnection, ZConnection, Data.DB,
+  ZAbstractRODataset, ZDataset;
+
+type
+  TdmConexao = class(TDataModule)
+    Conexao: TZConnection;
+    qr: TZReadOnlyQuery;
+    qrMATRICULA: TIntegerField;
+    qrNOME: TWideStringField;
+    qrUSUARIOBD: TWideStringField;
+    qrSENHA: TWideStringField;
+    qrCODFILIAL: TWideStringField;
+    qrCODUSUR: TSmallintField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConexao: TdmConexao;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+{$R *.dfm}
+
+end.

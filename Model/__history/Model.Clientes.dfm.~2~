@@ -1,0 +1,268 @@
+object dmVendedor: TdmVendedor
+  OldCreateOrder = False
+  Height = 355
+  Width = 502
+  object qrClientesRCA: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      
+        'SELECT CLI.codcli, CLI.cliente, CLI.fantasia, CLI.bloqueio, CLI.' +
+        'codcliprinc,'
+      '       CLI.enderent, CLI.bairroent, CLI.municent, CLI.estent,'
+      '       CLI.codusur1, CLI.codusur2, CLI.codusur3,'
+      
+        '       CLI.codpraca, PRA.praca, CLI.codcob, COB.cobranca, CLI.co' +
+        'dplpag, PAG.descricao,'
+      
+        '       CLI.codrede, PRA.numregiao, CLI.codatv1, ATI.codativ, ATI' +
+        '.ramo,'
+      
+        '       REPLACE(REPLACE(REPLACE(CLI.cgcent,'#39'/'#39','#39#39'),'#39'.'#39','#39#39'),'#39'-'#39','#39#39 +
+        ') CNPJ, '
+      
+        '       (SELECT SUM(LIMCRED) FROM PCCLIENT WHERE CODCLIPRINC = CL' +
+        'I.codcliprinc) LIMCRED,'
+      '       '
+      '       (SELECT SUM(VLATEND) '
+      '          FROM PCPEDC, PCCLIENT  '
+      '         WHERE PCPEDC.codcli = PCCLIENT.codcli'
+      '           AND PCCLIENT.codcliprinc = CLI.codcliprinc '
+      '           AND CONDVENDA = 1 '
+      '           AND DTCANCEL IS NULL '
+      '           AND POSICAO IN ('#39'L'#39','#39'M'#39') '
+      '           AND CODFILIAL = :CODFILIAL) PEDABERTO,'
+      '       '
+      '       (SELECT SUM(VALOR) '
+      '          FROM PCPREST, PCCLIENT '
+      '         WHERE PCPREST.codcli = CLI.codcli '
+      '           AND PCCLIENT.codcliprinc = CLI.codcliprinc'
+      
+        '           AND PCPREST.codcob NOT IN ('#39'DEVP'#39', '#39'DEVT'#39', '#39'BNF'#39', '#39'BN' +
+        'FT'#39', '#39'BNFR'#39', '#39'BNTR'#39', '#39'BNRP'#39', '#39'CRED'#39','#39'DESD'#39')'
+      '           AND DTPAG IS NULL '
+      '           AND CODFILIAL = :CODFILIAL) VLABERTO,'
+      '           '
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur1) SUPERV1,'
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur2) SUPERV2,'
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur3) SUPERV3    '
+      '       '
+      
+        '  FROM PCCLIENT CLI, PCPRACA PRA, PCCOB COB, PCPLPAG PAG, PCATIV' +
+        'I ATI  '
+      ' WHERE 1 = 1'
+      '   AND CLI.codpraca = PRA.codpraca'
+      '   AND CLI.codcob = COB.codcob'
+      '   AND CLI.codplpag = PAG.codplpag'
+      '   AND CLI.codatv1 = ATI.codativ'
+      
+        '   AND ((CLI.codusur1 = :CODUSUR) OR (CLI.codusur2 = :CODUSUR) O' +
+        'R (CLI.codusur3 = :CODUSUR))'
+      ' UNION ALL'
+      
+        'SELECT CLI.codcli, CLI.cliente, CLI.fantasia, CLI.bloqueio, CLI.' +
+        'codcliprinc,'
+      '       CLI.enderent, CLI.bairroent, CLI.municent, CLI.estent,'
+      '       CLI.codusur1, CLI.codusur2, CLI.codusur3,'
+      
+        '       CLI.codpraca, PRA.praca, CLI.codcob, COB.cobranca, CLI.co' +
+        'dplpag, PAG.descricao,'
+      
+        '       CLI.codrede, PRA.numregiao, CLI.codatv1, ATI.codativ, ATI' +
+        '.ramo,'
+      
+        '       REPLACE(REPLACE(REPLACE(CLI.cgcent,'#39'/'#39','#39#39'),'#39'.'#39','#39#39'),'#39'-'#39','#39#39 +
+        ') CNPJ, '
+      
+        '       (SELECT SUM(LIMCRED) FROM PCCLIENT WHERE CODCLIPRINC = CL' +
+        'I.codcliprinc) LIMCRED,'
+      '       '
+      '       (SELECT SUM(VLATEND) '
+      '          FROM PCPEDC, PCCLIENT  '
+      '         WHERE PCPEDC.codcli = PCCLIENT.codcli'
+      '           AND PCCLIENT.codcliprinc = CLI.codcliprinc '
+      '           AND CONDVENDA = 1 '
+      '           AND DTCANCEL IS NULL '
+      '           AND POSICAO IN ('#39'L'#39','#39'M'#39') '
+      '           AND CODFILIAL = :CODFILIAL) PEDABERTO,'
+      '       '
+      '       (SELECT SUM(VALOR) '
+      '          FROM PCPREST, PCCLIENT '
+      '         WHERE PCPREST.codcli = CLI.codcli '
+      '           AND PCCLIENT.codcliprinc = CLI.codcliprinc'
+      
+        '           AND PCPREST.codcob NOT IN ('#39'DEVP'#39', '#39'DEVT'#39', '#39'BNF'#39', '#39'BN' +
+        'FT'#39', '#39'BNFR'#39', '#39'BNTR'#39', '#39'BNRP'#39', '#39'CRED'#39','#39'DESD'#39')'
+      '           AND DTPAG IS NULL '
+      '           AND CODFILIAL = :CODFILIAL) VLABERTO,'
+      '           '
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur1) SUPERV1,'
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur2) SUPERV2,'
+      
+        '       (SELECT PCUSUARI.codsupervisor FROM PCUSUARI WHERE PCUSUA' +
+        'RI.codusur = CLI.codusur3) SUPERV3    '
+      '       '
+      
+        '  FROM PCCLIENT CLI, PCPRACA PRA, PCCOB COB, PCPLPAG PAG, PCATIV' +
+        'I ATI, PCUSURCLI USU   '
+      ' WHERE 1 = 1'
+      '   AND CLI.codpraca = PRA.codpraca'
+      '   AND CLI.codcob = COB.codcob'
+      '   AND CLI.codplpag = PAG.codplpag'
+      '   AND CLI.codatv1 = ATI.codativ'
+      '   AND CLI.codcli = USU.codcli'
+      '   AND USU.codusur = :CODUSUR'
+      '   AND USU.codusurpadrao = :CODFILIAL'
+      ' ORDER BY CLIENTE')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'CODFILIAL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end>
+    Left = 32
+    Top = 24
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CODFILIAL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end>
+    object qrClientesRCACODCLI: TIntegerField
+      FieldName = 'CODCLI'
+      Required = True
+    end
+    object qrClientesRCACLIENTE: TWideStringField
+      FieldName = 'CLIENTE'
+      Size = 60
+    end
+    object qrClientesRCAFANTASIA: TWideStringField
+      FieldName = 'FANTASIA'
+      Size = 40
+    end
+    object qrClientesRCABLOQUEIO: TWideStringField
+      FieldName = 'BLOQUEIO'
+      Size = 1
+    end
+    object qrClientesRCACODCLIPRINC: TIntegerField
+      FieldName = 'CODCLIPRINC'
+    end
+    object qrClientesRCAENDERENT: TWideStringField
+      FieldName = 'ENDERENT'
+      Size = 40
+    end
+    object qrClientesRCABAIRROENT: TWideStringField
+      FieldName = 'BAIRROENT'
+      Size = 40
+    end
+    object qrClientesRCAMUNICENT: TWideStringField
+      FieldName = 'MUNICENT'
+      Size = 15
+    end
+    object qrClientesRCAESTENT: TWideStringField
+      FieldName = 'ESTENT'
+      Size = 2
+    end
+    object qrClientesRCACODUSUR1: TSmallintField
+      FieldName = 'CODUSUR1'
+    end
+    object qrClientesRCACODUSUR2: TSmallintField
+      FieldName = 'CODUSUR2'
+    end
+    object qrClientesRCACODUSUR3: TSmallintField
+      FieldName = 'CODUSUR3'
+    end
+    object qrClientesRCACODPRACA: TSmallintField
+      FieldName = 'CODPRACA'
+      Required = True
+    end
+    object qrClientesRCAPRACA: TWideStringField
+      FieldName = 'PRACA'
+      Required = True
+      Size = 25
+    end
+    object qrClientesRCACODCOB: TWideStringField
+      FieldName = 'CODCOB'
+      Size = 4
+    end
+    object qrClientesRCACOBRANCA: TWideStringField
+      FieldName = 'COBRANCA'
+      Required = True
+      Size = 30
+    end
+    object qrClientesRCACODPLPAG: TSmallintField
+      FieldName = 'CODPLPAG'
+    end
+    object qrClientesRCADESCRICAO: TWideStringField
+      FieldName = 'DESCRICAO'
+      Size = 40
+    end
+    object qrClientesRCACODREDE: TSmallintField
+      FieldName = 'CODREDE'
+    end
+    object qrClientesRCANUMREGIAO: TSmallintField
+      FieldName = 'NUMREGIAO'
+      Required = True
+    end
+    object qrClientesRCACODATV1: TIntegerField
+      FieldName = 'CODATV1'
+    end
+    object qrClientesRCACODATIV: TIntegerField
+      FieldName = 'CODATIV'
+      Required = True
+    end
+    object qrClientesRCARAMO: TWideStringField
+      FieldName = 'RAMO'
+      Required = True
+      Size = 40
+    end
+    object qrClientesRCACNPJ: TWideStringField
+      FieldName = 'CNPJ'
+      ReadOnly = True
+      Size = 18
+    end
+    object qrClientesRCALIMCRED: TFloatField
+      FieldName = 'LIMCRED'
+      ReadOnly = True
+    end
+    object qrClientesRCAPEDABERTO: TFloatField
+      FieldName = 'PEDABERTO'
+      ReadOnly = True
+    end
+    object qrClientesRCAVLABERTO: TFloatField
+      FieldName = 'VLABERTO'
+      ReadOnly = True
+    end
+    object qrClientesRCASUPERV1: TFloatField
+      FieldName = 'SUPERV1'
+      ReadOnly = True
+    end
+    object qrClientesRCASUPERV2: TFloatField
+      FieldName = 'SUPERV2'
+      ReadOnly = True
+    end
+    object qrClientesRCASUPERV3: TFloatField
+      FieldName = 'SUPERV3'
+      ReadOnly = True
+    end
+  end
+end

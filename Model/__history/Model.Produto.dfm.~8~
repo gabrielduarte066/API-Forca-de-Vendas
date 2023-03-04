@@ -1,0 +1,204 @@
+object dmProduto: TdmProduto
+  OldCreateOrder = False
+  Height = 355
+  Width = 505
+  object qrProdutos: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      'select pcprodut.descricao,'
+      'pcprodut.embalagem,'
+      'pcprodut.embalagemmaster,'
+      'pcprodut.codprod,'
+      'pcprodut.qtunit,'
+      'pcprodut.qtunitcx,'
+      'pcprodut.codauxiliar'
+      'from pcprodut'
+      'inner join pcest on pcest.codprod = pcprodut.codprod'
+      'and pcest.qtestger > 0'
+      'and pcest.codfilial = 22'
+      'and pcprodut.enviarforcavendas = '#39'S'#39
+      'order by descricao asc')
+    Params = <>
+    Left = 56
+    Top = 32
+    object qrProdutosDESCRICAO: TWideStringField
+      FieldName = 'DESCRICAO'
+      Required = True
+      Size = 40
+    end
+    object qrProdutosEMBALAGEM: TWideStringField
+      FieldName = 'EMBALAGEM'
+      Required = True
+      Size = 12
+    end
+    object qrProdutosEMBALAGEMMASTER: TWideStringField
+      FieldName = 'EMBALAGEMMASTER'
+      Size = 12
+    end
+    object qrProdutosCODPROD: TIntegerField
+      FieldName = 'CODPROD'
+      Required = True
+    end
+    object qrProdutosQTUNIT: TFloatField
+      FieldName = 'QTUNIT'
+    end
+    object qrProdutosQTUNITCX: TFloatField
+      FieldName = 'QTUNITCX'
+    end
+    object qrProdutosCODAUXILIAR: TFloatField
+      FieldName = 'CODAUXILIAR'
+    end
+  end
+  object qrDesc561: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      'SELECT MAX(PERCDESC) PERCDESC'
+      '  FROM PCDESCONTO,'
+      
+        '       (SELECT CODEPTO, CODSEC, CODFORNEC, CODPRODPRINC FROM PCP' +
+        'RODUT WHERE CODPROD = :CODPROD1) PRODUT,'
+      
+        '       (SELECT CODSUPERVISOR FROM PCUSUARI WHERE CODUSUR = :CODU' +
+        'SUR) SUPERV,'
+      
+        '       (SELECT PCPRACA.codpraca, PCPRACA.numregiao, PCCLIENT.cod' +
+        'rede FROM PCPRACA, PCCLIENT WHERE PCPRACA.codpraca = PCCLIENT.co' +
+        'dpraca AND PCCLIENT.codcli = :CODCLI) CLIENT'
+      ' WHERE CODFILIAL = :CODFILIAL'
+      '   AND :DATA BETWEEN DTINICIO AND DTFIM'
+      
+        '   AND (( PCDESCONTO.CODEPTO = PRODUT.CODEPTO ) OR ( PCDESCONTO.' +
+        'CODEPTO IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODCLI = :CODCLI2 ) OR ( PCDESCONTO.CODCLI ' +
+        'IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODSEC  = PRODUT.CODSEC) OR ( PCDESCONTO.CO' +
+        'DSEC IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODPROD = :CODPROD2 ) OR ( PCDESCONTO.CODPR' +
+        'OD IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODUSUR = :CODUSUR2 ) OR ( PCDESCONTO.CODUS' +
+        'UR IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODSUPERVISOR = SUPERV.CODSUPERVISOR ) OR (' +
+        ' PCDESCONTO.CODSUPERVISOR IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODFORNEC = PRODUT.CODFORNEC ) OR ( PCDESCO' +
+        'NTO.CODFORNEC IS NULL ))'
+      
+        '   AND (( PCDESCONTO.NUMREGIAO = CLIENT.NUMREGIAO ) OR ( PCDESCO' +
+        'NTO.NUMREGIAO IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODPRACA = CLIENT.CODPRACA ) OR ( PCDESCONT' +
+        'O.CODPRACA IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODREDE = CLIENT.CODREDE ) OR ( PCDESCONTO.' +
+        'CODREDE IS NULL ))'
+      
+        '   AND (( PCDESCONTO.CODPRODPRINC = PRODUT.CODPRODPRINC ) OR ( P' +
+        'CDESCONTO.CODPRODPRINC IS NULL ))'
+      
+        '   AND ((PCDESCONTO.CODPLPAG = :CODPLPAG) OR (PCDESCONTO.CODPLPA' +
+        'G IS NULL))')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'CODPROD1'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODCLI'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODFILIAL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'DATA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODCLI2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODPROD2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODPLPAG'
+        ParamType = ptUnknown
+      end>
+    Left = 144
+    Top = 32
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CODPROD1'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODCLI'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODFILIAL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'DATA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODCLI2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODPROD2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODUSUR2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CODPLPAG'
+        ParamType = ptUnknown
+      end>
+    object qrDesc561PERCDESC: TFloatField
+      FieldName = 'PERCDESC'
+      ReadOnly = True
+    end
+  end
+end

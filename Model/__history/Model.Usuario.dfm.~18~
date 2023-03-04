@@ -1,0 +1,52 @@
+object dmUsuario: TdmUsuario
+  OldCreateOrder = False
+  Height = 188
+  Width = 344
+  object qrUsuario: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      'select pcempr.matricula,'
+      '       pcempr.nome,'
+      '       pcempr.usuariobd,'
+      '       decrypt(pcempr.senhabd ,pcempr.usuariobd ) senha,'
+      '       pcempr.codfilial,'
+      '       pcempr.codusur'
+      'from pcempr where pcempr.dt_exclusao is null'
+      'and pcempr.dtdemissao is null'
+      'and pcempr.senhabd is not NULL'
+      'and pcempr.situacao = '#39'A'#39)
+    Params = <>
+    Left = 40
+    Top = 24
+    object qrUsuarioMATRICULA: TIntegerField
+      FieldName = 'MATRICULA'
+      Required = True
+    end
+    object qrUsuarioNOME: TWideStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 40
+    end
+    object qrUsuarioUSUARIOBD: TWideStringField
+      FieldName = 'USUARIOBD'
+      Size = 15
+    end
+    object qrUsuarioSENHA: TWideStringField
+      FieldName = 'SENHA'
+      ReadOnly = True
+      Size = 4000
+    end
+    object qrUsuarioCODFILIAL: TWideStringField
+      FieldName = 'CODFILIAL'
+      Size = 2
+    end
+    object qrUsuarioCODUSUR: TSmallintField
+      FieldName = 'CODUSUR'
+    end
+  end
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Params = <>
+    Left = 120
+    Top = 24
+  end
+end

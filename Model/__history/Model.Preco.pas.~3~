@@ -1,0 +1,28 @@
+unit Model.Preco;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, ZAbstractRODataset, ZDataset;
+
+type
+  TDataModule2 = class(TDataModule)
+    ZReadOnlyQuery1: TZReadOnlyQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule2: TDataModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses U_dmConexao;
+
+{$R *.dfm}
+
+end.

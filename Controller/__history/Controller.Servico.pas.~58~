@@ -1,0 +1,61 @@
+unit Controller.Servico;
+
+interface
+   type TServico = class
+       private
+       public
+       function  DataHora() : string;
+       procedure StartServer();
+       procedure StopServer();
+   end;
+
+implementation
+uses Horse,
+     Horse.Etag,
+     Horse.Jhonson,
+     Controller.Usuarios,
+     System.SysUtils, Controller.Vendedor;
+
+{ Servico }
+
+function TServico.DataHora : string;
+begin
+  if THorse.IsRunning then
+  begin
+    Result := 'Serviço Iniciado: '+ FormatDateTime('dd dddd mmmm yyyy',Date) +' Hora: ' + TimeToStr(Time);
+  end;
+end;
+
+
+procedure TServico.StartServer;
+var ldataHora : string;
+usuario : TUsuarios;
+vendedor : TVendedor;
+begin
+usuario  := TUsuarios.Create;
+vendedor := TVendedor.Create;
+try
+  if not THorse.IsRunning then
+    begin
+      THorse.Use(Jhonson())
+      .Use(Etag);
+      //ROTAS
+      usuario.registry;
+      vendedor.registry;
+      THorse.Listen(9000);
+    end;
+finally
+    FreeAndNil(usuario);
+    FreeAndNil(vendedor);
+end;
+end;
+
+procedure TServico.StopServer;
+begin
+   if THorse.IsRunning = True then
+    begin
+      THorse.StopListen;
+    end;
+end;
+
+end.

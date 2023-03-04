@@ -1,0 +1,28 @@
+unit Model.Vendedor;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, ZAbstractRODataset, ZDataset;
+
+type
+  TDataModule1 = class(TDataModule)
+    qrClientes: TZReadOnlyQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses Model.Conexao;
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,10 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 355
+  Width = 502
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Params = <>
+    Left = 88
+    Top = 64
+  end
+end

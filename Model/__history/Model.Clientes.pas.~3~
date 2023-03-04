@@ -1,0 +1,58 @@
+unit Model.Clientes;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, ZAbstractRODataset, ZDataset;
+
+type
+  TdmVendedor = class(TDataModule)
+    qrClientesRCA: TZReadOnlyQuery;
+    qrClientesRCACODCLI: TIntegerField;
+    qrClientesRCACLIENTE: TWideStringField;
+    qrClientesRCAFANTASIA: TWideStringField;
+    qrClientesRCABLOQUEIO: TWideStringField;
+    qrClientesRCACODCLIPRINC: TIntegerField;
+    qrClientesRCAENDERENT: TWideStringField;
+    qrClientesRCABAIRROENT: TWideStringField;
+    qrClientesRCAMUNICENT: TWideStringField;
+    qrClientesRCAESTENT: TWideStringField;
+    qrClientesRCACODUSUR1: TSmallintField;
+    qrClientesRCACODUSUR2: TSmallintField;
+    qrClientesRCACODUSUR3: TSmallintField;
+    qrClientesRCACODPRACA: TSmallintField;
+    qrClientesRCAPRACA: TWideStringField;
+    qrClientesRCACODCOB: TWideStringField;
+    qrClientesRCACOBRANCA: TWideStringField;
+    qrClientesRCACODPLPAG: TSmallintField;
+    qrClientesRCADESCRICAO: TWideStringField;
+    qrClientesRCACODREDE: TSmallintField;
+    qrClientesRCANUMREGIAO: TSmallintField;
+    qrClientesRCACODATV1: TIntegerField;
+    qrClientesRCACODATIV: TIntegerField;
+    qrClientesRCARAMO: TWideStringField;
+    qrClientesRCACNPJ: TWideStringField;
+    qrClientesRCALIMCRED: TFloatField;
+    qrClientesRCAPEDABERTO: TFloatField;
+    qrClientesRCAVLABERTO: TFloatField;
+    qrClientesRCASUPERV1: TFloatField;
+    qrClientesRCASUPERV2: TFloatField;
+    qrClientesRCASUPERV3: TFloatField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmVendedor: TdmVendedor;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses Model.Conexao;
+
+{$R *.dfm}
+
+end.

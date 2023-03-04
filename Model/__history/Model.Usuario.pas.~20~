@@ -1,0 +1,35 @@
+unit Model.Usuario;
+
+interface
+uses
+       System.SysUtils, System.Classes, Data.DB, ZAbstractRODataset, ZDataset,Model.Conexao;
+
+
+
+type
+  TdmUsuario = class(TDataModule)
+    qrUsuario: TZReadOnlyQuery;
+    qrUsuarioMATRICULA: TIntegerField;
+    qrUsuarioNOME: TWideStringField;
+    qrUsuarioUSUARIOBD: TWideStringField;
+    qrUsuarioSENHA: TWideStringField;
+    qrUsuarioCODFILIAL: TWideStringField;
+    qrUsuarioCODUSUR: TSmallintField;
+    qrPermissaoUsuario: TZReadOnlyQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmUsuario: TdmUsuario;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+
+{$R *.dfm}
+
+end.

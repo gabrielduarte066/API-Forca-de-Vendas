@@ -1,0 +1,35 @@
+unit Model.Produto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, ZAbstractRODataset, ZDataset;
+
+type
+  TdmProduto = class(TDataModule)
+    qrProdutos: TZReadOnlyQuery;
+    qrProdutosDESCRICAO: TWideStringField;
+    qrProdutosEMBALAGEM: TWideStringField;
+    qrProdutosEMBALAGEMMASTER: TWideStringField;
+    qrProdutosCODPROD: TIntegerField;
+    qrProdutosQTUNIT: TFloatField;
+    qrProdutosQTUNITCX: TFloatField;
+    qrProdutosCODAUXILIAR: TFloatField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmProduto: TdmProduto;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses U_dmConexao;
+
+{$R *.dfm}
+
+end.

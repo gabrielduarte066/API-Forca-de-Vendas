@@ -1,0 +1,58 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  Height = 165
+  Width = 249
+  object Conexao: TZConnection
+    ControlsCodePage = cCP_UTF16
+    Catalog = ''
+    HostName = ''
+    Port = 0
+    Database = 'WINT'
+    User = 'garra'
+    Password = 'zlqwkru500603660'
+    Protocol = 'oracle'
+    Left = 32
+    Top = 16
+  end
+  object qr: TZReadOnlyQuery
+    Connection = Conexao
+    SQL.Strings = (
+      'select pcempr.matricula,'
+      '       pcempr.nome,'
+      '       pcempr.usuariobd,'
+      '       decrypt(pcempr.senhabd ,pcempr.usuariobd ) senha,'
+      '       pcempr.codfilial,'
+      '       pcempr.codusur'
+      'from pcempr where pcempr.dt_exclusao is null'
+      'and pcempr.dtdemissao is null'
+      'and pcempr.senhabd is not null')
+    Params = <>
+    Left = 96
+    Top = 56
+    object qrMATRICULA: TIntegerField
+      FieldName = 'MATRICULA'
+      Required = True
+    end
+    object qrNOME: TWideStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 40
+    end
+    object qrUSUARIOBD: TWideStringField
+      FieldName = 'USUARIOBD'
+      Size = 15
+    end
+    object qrSENHA: TWideStringField
+      FieldName = 'SENHA'
+      ReadOnly = True
+      Size = 4000
+    end
+    object qrCODFILIAL: TWideStringField
+      FieldName = 'CODFILIAL'
+      Size = 2
+    end
+    object qrCODUSUR: TSmallintField
+      FieldName = 'CODUSUR'
+    end
+  end
+end

@@ -1,0 +1,46 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2023-02-27T12:04:41.8933723-03:00",
+	"installedModules": {
+		"github.com/hashload/horse": {
+			"name": "horse",
+			"version": "3.0.2",
+			"hash": "929cb417c573af469c997a7e1fda5dbb",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/academiadocodigo/horse-etag": {
+			"name": "horse-etag",
+			"version": "1.0.3",
+			"hash": "68b9b6074e288645893aff1e29e56f4f",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/hashload/jhonson": {
+			"name": "jhonson",
+			"version": "1.1.4",
+			"hash": "7f48e0509b98505a12fa80ee39b53aea",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/paolo-rossi/delphi-jose-jwt": {
+			"name": "delphi-jose-jwt",
+			"version": "v3.2.0",
+			"hash": "eadfcb98abd01d919ed5be0d0b5cd5e7",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.4.8",
+			"hash": "35c05c0196720756923c48da654e4817",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}

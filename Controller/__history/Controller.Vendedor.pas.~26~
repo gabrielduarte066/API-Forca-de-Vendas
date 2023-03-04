@@ -1,0 +1,47 @@
+unit Controller.Vendedor;
+
+interface
+uses Horse, System.JSON,System.SysUtils, DataSet.Serialize,REST.Types, REST.Json;
+type TVendedor = class
+     procedure registry;
+     procedure getClientesRcas(Req: THorseRequest; Res: THorseResponse; Next: Tproc);
+     procedure consultaClientes(codusur : integer);
+     function  criarArrayClientesJSON:TJsonArray;
+end;
+
+implementation
+
+{ TVendedor }
+
+uses Model.Vendedor;
+
+
+procedure TVendedor.consultaClientes(codusur: integer);
+begin
+    dmVendedor.qrClientesRCA.Close;
+    dmVendedor.qrClientesRCA.Params.ParamByName('CODUSUR').Value := codusur;
+    dmVendedor.qrClientesRCA.Open;
+end;
+
+function TVendedor.criarArrayClientesJSON: TJsonArray;
+var
+arrayClientes : TJSONArray;
+begin
+  arrayClientes := dmVendedor.qrClientesRCA.ToJSONArray;
+  Result :=  arrayClientes;
+end;
+
+procedure TVendedor.getClientesRcas(Req: THorseRequest; Res: THorseResponse;
+  Next: Tproc);
+begin
+    consultaClientes(Req.Params['codusur'].ToInteger);
+    Res.Send(criarArrayClientesJSON).Status(200);
+end;
+
+procedure TVendedor.registry;
+begin
+    THorse.Get('/clientes-rcas/:codusur',getClientesRcas);
+end;
+
+
+end.

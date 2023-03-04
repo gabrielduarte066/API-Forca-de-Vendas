@@ -1,0 +1,52 @@
+object dmProduto: TdmProduto
+  OldCreateOrder = False
+  Height = 355
+  Width = 505
+  object qrProdutos: TZReadOnlyQuery
+    Connection = dmConexao.Conexao
+    SQL.Strings = (
+      'select pcprodut.descricao,'
+      'pcprodut.embalagem,'
+      'pcprodut.embalagemmaster,'
+      'pcprodut.codprod,'
+      'pcprodut.qtunit,'
+      'pcprodut.qtunitcx,'
+      'pcprodut.codauxiliar'
+      'from pcprodut'
+      'inner join pcest on pcest.codprod = pcprodut.codprod'
+      'and pcest.qtestger > 0'
+      'and pcest.codfilial = 22'
+      'and pcprodut.enviarforcavendas = '#39'S'#39
+      'order by descricao asc')
+    Params = <>
+    Left = 56
+    Top = 32
+    object qrProdutosDESCRICAO: TWideStringField
+      FieldName = 'DESCRICAO'
+      Required = True
+      Size = 40
+    end
+    object qrProdutosEMBALAGEM: TWideStringField
+      FieldName = 'EMBALAGEM'
+      Required = True
+      Size = 12
+    end
+    object qrProdutosEMBALAGEMMASTER: TWideStringField
+      FieldName = 'EMBALAGEMMASTER'
+      Size = 12
+    end
+    object qrProdutosCODPROD: TIntegerField
+      FieldName = 'CODPROD'
+      Required = True
+    end
+    object qrProdutosQTUNIT: TFloatField
+      FieldName = 'QTUNIT'
+    end
+    object qrProdutosQTUNITCX: TFloatField
+      FieldName = 'QTUNITCX'
+    end
+    object qrProdutosCODAUXILIAR: TFloatField
+      FieldName = 'CODAUXILIAR'
+    end
+  end
+end
